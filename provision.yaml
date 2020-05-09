@@ -1,0 +1,10 @@
+---
+docker:
+  provisioner: docker
+  images: ['litmusimage/ubuntu:18.04']
+vagrant:
+  provisioner: vagrant
+  images: ['generic/ubuntu1804']
+travis_ub:
+  provisioner: docker
+  images: ['litmusimage/ubuntu:18.04']
