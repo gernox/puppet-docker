@@ -2,5 +2,16 @@
 # See https://github.com/puppetlabs/puppetlabs_spec_helper#using-fixtures for details
 ---
 fixtures:
-  forge_modules:
-#     stdlib: "puppetlabs/stdlib"
+  repositories:
+    apt:
+      repo: 'https://github.com/puppetlabs/puppetlabs-apt.git'
+      ref: 'v7.4.1'
+    docker:
+      repo: 'https://github.com/puppetlabs/puppetlabs-docker.git'
+      ref: 'v3.10.0'
+    stdlib:
+      repo: 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
+      ref: 'v6.3.0'
+    translate:
+      repo: 'https://github.com/puppetlabs/puppetlabs-translate.git'
+      ref: 'v2.2.0'

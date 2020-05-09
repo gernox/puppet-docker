@@ -1,1 +1,4 @@
---- {}
+---
+gernox_docker::listen_address: 0.0.0.0
+gernox_docker::listen_port: 2375
+gernox_docker::version: latest
