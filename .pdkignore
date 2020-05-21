@@ -25,6 +25,7 @@
 .project
 .envrc
 /inventory.yaml
+.rakeTasks
 /appveyor.yml
 /.fixtures.yml
 /Gemfile
