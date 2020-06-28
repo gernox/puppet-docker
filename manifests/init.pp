@@ -18,11 +18,12 @@ class gernox_docker (
   Integer $listen_port,
   String  $version,
   Optional[Hash] $registries = {},
+  Optional[Array] $dns       = undef,
 ) {
   file { '/etc/docker/':
-    ensure  => directory,
+    ensure => directory,
   }
-  ->file { '/etc/docker/daemon.json':
+  -> file { '/etc/docker/daemon.json':
     ensure  => present,
     content => file('gernox_docker/daemon.json'),
   }
@@ -30,6 +31,7 @@ class gernox_docker (
   class { '::docker':
     tcp_bind => "tcp://${listen_address}:${listen_port}",
     version  => $version,
+    dns      => $dns,
     require  => File['/etc/docker/daemon.json']
   }
 
