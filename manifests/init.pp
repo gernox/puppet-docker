@@ -17,6 +17,7 @@ class gernox_docker (
   String  $listen_address,
   Integer $listen_port,
   String  $version,
+  Boolean $iptables,
   Optional[Hash] $registries = {},
   Optional[Array] $dns       = undef,
 ) {
@@ -31,6 +32,7 @@ class gernox_docker (
   class { '::docker':
     tcp_bind => "tcp://${listen_address}:${listen_port}",
     version  => $version,
+    iptables => $iptables,
     dns      => $dns,
     require  => File['/etc/docker/daemon.json']
   }
