@@ -37,6 +37,10 @@ class gernox_docker (
     require  => File['/etc/docker/daemon.json']
   }
 
+  class { '::docker::compose':
+    ensure => present,
+  }
+
   class { '::docker::registry_auth':
     registries => $registries,
   }
