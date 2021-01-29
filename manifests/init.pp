@@ -17,6 +17,7 @@ class gernox_docker (
   String  $listen_address,
   Integer $listen_port,
   String  $version,
+  String  $compose_version,
   Boolean $iptables,
   Optional[Hash] $registries = {},
   Optional[Array] $dns       = undef,
@@ -38,7 +39,8 @@ class gernox_docker (
   }
 
   class { '::docker::compose':
-    ensure => present,
+    ensure  => present,
+    version => $compose_version,
   }
 
   class { '::docker::registry_auth':
