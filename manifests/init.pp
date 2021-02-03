@@ -13,6 +13,12 @@
 # @param registries
 #   List of custom docker registries
 #
+# @param dns
+#   List of dns servers
+#
+# @param root_dir
+#   The root path where all docker data is stored
+#
 class gernox_docker (
   String  $listen_address,
   Integer $listen_port,
@@ -21,6 +27,7 @@ class gernox_docker (
   Boolean $iptables,
   Optional[Hash] $registries = {},
   Optional[Array] $dns       = undef,
+  Optional[String] $root_dir = undef,
 ) {
   file { '/etc/docker/':
     ensure => directory,
@@ -35,6 +42,7 @@ class gernox_docker (
     version  => $version,
     iptables => $iptables,
     dns      => $dns,
+    root_dir => $root_dir,
     require  => File['/etc/docker/daemon.json']
   }
 
